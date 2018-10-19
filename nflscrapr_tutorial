@@ -19,7 +19,7 @@ HOW TO GET .CSV FILE OF NFL SEASON DATA ONTO YOUR COMPUTER
 Note: the pbp_data line will take a long time; that's normal. On the write.csv line, change the part in "quotes"
   to match where you want to save.
   
-4. To get ONE GAME of data (lots faster). In R:
+4. To get ONE GAME of data (lots faster). In R (again, change part in quotes to save to directory on your computer):
     library(nflscrapR)
     library(tidyverse)
     pbp_data <- scrape_json_play_by_play(2018091700)
