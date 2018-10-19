@@ -1,0 +1,35 @@
+HOW TO GET .CSV FILE OF NFL SEASON DATA ONTO YOUR COMPUTER
+
+1. Install R: https://cran.r-project.org/bin/windows/base/
+
+--Once R is installed, everything else will be in R itself--
+
+2. In R, install devtools and nflscraprR:
+    install.packages("devtools")
+    devtools::install_github(repo = "maksimhorowitz/nflscrapR")
+    
+--You only need to do #1 and #2 once. Once they're done, in the future you can skip to this step--
+
+3. To get a WHOLE SEASON of data. In R:
+    library(nflscrapR)
+    library(tidyverse)
+    pbp_data <- scrape_season_play_by_play(2018)
+    write.csv(pbp_data, file = "C:/Users/Ben/nfl/season2018.csv",row.names=FALSE)
+    
+Note: the pbp_data line will take a long time; that's normal. On the write.csv line, change the part in "quotes"
+  to match where you want to save.
+  
+4. To get ONE GAME of data (lots faster). In R:
+    library(nflscrapR)
+    library(tidyverse)
+    pbp_data <- scrape_json_play_by_play(2018091700)
+    write.csv(pbp_data, file = "C:/Users/Ben/nfl/season2018.csv",row.names=FALSE)
+    
+Note: on the pbp_data line, replace "2018091700" with the GameID of the game you want. To find a gameid:
+    Go to the week of the game you want on nfl.com, example: https://www.nfl.com/scores/2018/REG3
+    Click on the game you want, for Jets-Browns, example: https://www.nfl.com/gamecenter/2018092000/2018/REG3/jets@browns
+    The GameID is the set of numbers between the first /    / after gamecenter (in this case, 2018092000)
+    
+5. If you don't want to deal with R at all:
+    CSV files here: https://github.com/ryurko/nflscrapR-data/tree/master/play_by_play_data/regular_season
+    Note: these files do not update in real time like pulling with R does
