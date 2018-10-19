@@ -2,7 +2,7 @@ HOW TO GET .CSV FILE OF NFL SEASON DATA ONTO YOUR COMPUTER
 
 1. Install R: https://cran.r-project.org/bin/windows/base/
 
---Once R is installed, everything else will be in R itself--
+--Now that R is installed, everything else is for typing into R directly--
 
 2. In R, install devtools and nflscraprR:
     install.packages("devtools")
